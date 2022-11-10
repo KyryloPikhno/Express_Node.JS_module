@@ -1,6 +1,6 @@
 const fs = require('node:fs');
 
-const builder = require('./ditTwo/test')
+// const builder = require('./ditTwo/test')
 
 
 // fs.readFile('./text.txt', (error,data)=>{
@@ -49,10 +49,18 @@ const builder = require('./ditTwo/test')
 // })
 //
 
-let student = builder.builder('Kirill',25)
+// let student = builder.builder('Kirill',25)
+//
+// console.log(student)
 
-console.log(student)
-
+// fs.mkdir('./boys',(err)=>{
+//     console.log(err);
+// })
+//
+// fs.mkdir('./girls',(err)=>{
+//     console.log(err);
+// })
+//
 
 
 
