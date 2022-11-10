@@ -1,5 +1,7 @@
 const fs = require('node:fs');
 
+const builder = require('./ditTwo/test')
+
 
 // fs.readFile('./text.txt', (error,data)=>{
 //     console.log(error, 'error');
@@ -47,9 +49,9 @@ const fs = require('node:fs');
 // })
 //
 
+let student = builder.builder('Kirill',25)
 
-
-
+console.log(student)
 
 
 
