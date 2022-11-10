@@ -1,69 +1,122 @@
 const fs = require('node:fs');
 
-// const builder = require('./ditTwo/test')
 
-
-// fs.readFile('./text.txt', (error,data)=>{
-//     console.log(error, 'error');
-//
-//     console.log(data.toString());
-// })
-//
-// fs.appendFile('./text.txt', 'HELLO \n', (error) => {
-//     console.log('err', error);
-// });
-//
-// fs.writeFile('./text.txt', 'WRITE FILE',(error)=>{
-//     console.log('ERROR',error);
-// })
-// fs.mkdir('./dir',(error)=>{
+// fs.appendFile('./boys/Sasha.json', JSON.stringify({gender:'girl'}),(error)=>{
 //     console.log(error);
 // })
 //
-// fs.appendFile('./dir/file.json', JSON.stringify({user:'USER'}),(error)=>{
-//     console.log(err);
-// })
-//
-// fs.unlink('./dir/file.json',(error)=>{
+// fs.appendFile('./girls/Vitalik.json', JSON.stringify({gender:'boy'}),(error)=>{
 //     console.log(error);
 // })
 //
-// fs.rmdir('./dir',{recursive:true},(err)=>{
-//     console.log(err);
+// fs.appendFile('./girls/Nikita.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
 // })
 //
-// fs.rename('./text.txt','./test.txt',(err)=>{
-//     console.log(err);
+// fs.appendFile('./boys/Masha.json', JSON.stringify({gender:'girl'}),(error)=>{
+//     console.log(error);
 // })
 //
-// fs.rename('./test.txt','./text.txt',(err)=>{
-//     console.log(err);
+// fs.appendFile('./boys/Misha.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
 // })
 //
-// fs.mkdir('./dir',(err)=>{
-//     console.log(err);
+// fs.appendFile('./girls/Vania.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
 // })
 //
-// fs.rename('./text.txt','./dir/test.txt',(err)=>{
-//     console.log(err);
+// fs.appendFile('./girls/Igor.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
 // })
 //
+// fs.appendFile('./boys/Ignat.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./girls/Lesha.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./boys/Tatiana.json', JSON.stringify({gender:'girl'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./boys/Elena.json', JSON.stringify({gender:'girl'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./girls/Nestor.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./girls/Andrey.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./girls/Pasha.json', JSON.stringify({gender:'boy'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./girls/Alena.json', JSON.stringify({gender:'girl'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./girls/Marina.json', JSON.stringify({gender:'girl'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./girls/Lesia.json', JSON.stringify({gender:'girl'}),(error)=>{
+//     console.log(error);
+// })
+//
+// fs.appendFile('./girls/Alisa.json', JSON.stringify({gender:'girl'}),(error)=>{
+//     console.log(error);
+// })
 
-// let student = builder.builder('Kirill',25)
-//
-// console.log(student)
 
-// fs.mkdir('./boys',(err)=>{
-//     console.log(err);
-// })
-//
-// fs.mkdir('./girls',(err)=>{
-//     console.log(err);
-// })
-//
+fs.readdir('./boys', (error, files) => {
+    console.log(files)
 
+    for (const fileName of files) {
 
+        fs.stat(`./boys/${fileName}`, (error, stat) => {
+            console.log(stat.isDirectory());
 
+            if (stat.isFile()) {
+                fs.readFile(`./boys/${fileName}`, (error, data) => {
+                    const gender = JSON.parse(data.toString()).gender
+                    if (gender === 'girl') {
+                        fs.rename(`./boys/${fileName}`, `./girls/${fileName}`, (error) => {
+                            console.log(error);
+                        });
+                    }
+                });
+            }
+        });
+    }
+});
+
+fs.readdir('./girls', (error, files) => {
+    console.log(files);
+
+    for (const fileName of files) {
+
+        fs.stat(`./boys/${fileName}`, (error, stat) => {
+            console.log(stat.isDirectory());
+
+            if (stat.isFile()) {
+                fs.readFile(`./girls/${fileName}`, (error, data) => {
+                    const gender = JSON.parse(data.toString()).gender
+                    if (gender === 'boy') {
+                        fs.rename(`./girls/${fileName}`, `./boys/${fileName}`, (error) => {
+                            console.log(error);
+                        });
+                    }
+                });
+            }
+        });
+    }
+});
 
 
 
