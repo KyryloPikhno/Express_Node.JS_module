@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="add folders">
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="practice with fs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dir/test.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ditTwo/test.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +54,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668086281470</updated>
-      <workItem from="1668086285573" duration="14238000" />
+      <workItem from="1668086285573" duration="15130000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -108,7 +105,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668104780391</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="practice with fs">
+      <created>1668112305301</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668112305302</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,6 +134,7 @@
     <MESSAGE value="add fs" />
     <MESSAGE value="add module" />
     <MESSAGE value="add folders" />
-    <option name="LAST_COMMIT_MESSAGE" value="add folders" />
+    <MESSAGE value="practice with fs" />
+    <option name="LAST_COMMIT_MESSAGE" value="practice with fs" />
   </component>
 </project>
