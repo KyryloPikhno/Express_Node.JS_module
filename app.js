@@ -1,145 +1,42 @@
-const fs = require('node:fs');
+const fs = require('fs/promises')
+const path = require('path')
 
 
-// fs.appendFile('./boys/Sasha.json', JSON.stringify({gender:'girl'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Vitalik.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Nikita.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./boys/Masha.json', JSON.stringify({gender:'girl'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./boys/Misha.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Vania.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Igor.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./boys/Ignat.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Lesha.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./boys/Tatiana.json', JSON.stringify({gender:'girl'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./boys/Elena.json', JSON.stringify({gender:'girl'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Nestor.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Andrey.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Pasha.json', JSON.stringify({gender:'boy'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Alena.json', JSON.stringify({gender:'girl'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Marina.json', JSON.stringify({gender:'girl'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Lesia.json', JSON.stringify({gender:'girl'}),(error)=>{
-//     console.log(error);
-// })
-//
-// fs.appendFile('./girls/Alisa.json', JSON.stringify({gender:'girl'}),(error)=>{
-//     console.log(error);
-// })
+const foo = async () => {
+    const folderPath = path.join(__dirname, 'boys')
 
+    const files = await fs.readdir(folderPath)
 
-fs.readdir('./boys', (error, files) => {
-    console.log(files)
+    for (const file of files) {
+        const filePath = path.join(folderPath, file)
 
-    for (const fileName of files) {
+        const data = await fs.readFile(filePath)
 
-        fs.stat(`./boys/${fileName}`, (error, stat) => {
-            console.log(stat.isDirectory());
+        const user = JSON.parse(data)
 
-            if (stat.isFile()) {
-                fs.readFile(`./boys/${fileName}`, (error, data) => {
-                    const gender = JSON.parse(data.toString()).gender
-                    if (gender === 'girl') {
-                        fs.rename(`./boys/${fileName}`, `./girls/${fileName}`, (error) => {
-                            console.log(error);
-                        });
-                    }
-                });
-            }
-        });
+        if (user.gender === 'girl') {
+            await fs.rename(filePath, path.join(__dirname, 'girls',file))
+        }
     }
-});
+};
 
-fs.readdir('./girls', (error, files) => {
-    console.log(files);
+const foo1 = async () => {
+    const folderPath = path.join(__dirname, 'girls')
 
-    for (const fileName of files) {
+    const files = await fs.readdir(folderPath)
 
-        fs.stat(`./boys/${fileName}`, (error, stat) => {
-            console.log(stat.isDirectory());
+    for (const file of files) {
+        const filePath = path.join(folderPath, file)
 
-            if (stat.isFile()) {
-                fs.readFile(`./girls/${fileName}`, (error, data) => {
-                    const gender = JSON.parse(data.toString()).gender
-                    if (gender === 'boy') {
-                        fs.rename(`./girls/${fileName}`, `./boys/${fileName}`, (error) => {
-                            console.log(error);
-                        });
-                    }
-                });
-            }
-        });
+        const data = await fs.readFile(filePath)
+
+        const user = JSON.parse(data)
+
+        if (user.gender === 'boy') {
+            await fs.rename(filePath, path.join(__dirname, 'boys', file))
+        }
     }
-});
+};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+foo()
+foo1()
