@@ -1,6 +1,5 @@
 const express = require('express');
-const fs = require('fs/promises')
-const path = require('path')
+const {reader, writer} = require("./services/service");
 
 const app = express()
 
@@ -104,30 +103,23 @@ app.patch('/users/:userId', (req, res) => {
     const {age, name} = userInfo
 
     if (age || name) {
-        if(typeof (+userId) === 'number'){
+        if (typeof (+userId) === 'number') {
             userDB[userId] = {...userDB[userId], ...userInfo}
 
             res.status(200).json('updated user field')
-        }else {
+        } else {
             res.send('Error with updating user field')
 
             res.status(404).json('updated user field')
         }
     }
-})
+});
 
-app.listen(4000,()=>{
+app.listen(4000, () => {
     console.log('server works')
-})
+});
 
-const reader = async () => {
-    const buffer = await fs.readFile(path.join(__dirname, 'dataBase', 'users.json'))
-    return JSON.parse(buffer.toString())
-};
 
-const writer = async (users) => {
-    await fs.writeFile(path.join(__dirname, 'dataBase','users.json'),JSON.stringify(users))
-};
 
 
 
