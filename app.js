@@ -1,5 +1,5 @@
 const express = require('express');
-const {reader, writer} = require("./services/service");
+const {fileServices} = require("./services");
 
 const app = express()
 
@@ -13,7 +13,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/users', async (req, res) => {
-    const users = await reader()
+    const users = await fileServices.reader()
 
     res.json(users)
 });
@@ -21,7 +21,7 @@ app.get('/users', async (req, res) => {
 app.get('/users/:id', async (req, res) => {
     const {id} = req.params
 
-    const users = await reader()
+    const users = await fileServices.reader()
 
     const userById = users.find(user => user.id === +id)
 
@@ -42,7 +42,7 @@ app.post('/users', async (req, res) => {
         return res.status(400).json('Wrong age')
     }
 
-    const users = await reader()
+    const users = await fileServices.reader()
 
     const newUser = {
         name: userInfo.name,
@@ -52,7 +52,7 @@ app.post('/users', async (req, res) => {
 
     users.push(newUser);
 
-    await writer(users)
+    await fileServices.writer(users)
 
     res.status(201).json(newUser)
 });
@@ -62,7 +62,7 @@ app.put('/users/:userId', async (req, res) => {
 
     const {userId} = req.params
 
-    const users = await reader()
+    const users = await fileServices.reader()
 
     const index = users.findIndex(user => user.id === +userId);
 
@@ -72,7 +72,7 @@ app.put('/users/:userId', async (req, res) => {
 
     users[index] = {...users[index], ...newUserInfo}
 
-    await writer(users)
+    await fileServices.writer(users)
 
     res.status(201).json(users[index])
 });
@@ -80,7 +80,7 @@ app.put('/users/:userId', async (req, res) => {
 app.delete('/users/:userId', async (req, res) => {
     const {userId} = req.params
 
-    const users = await reader()
+    const users = await fileServices.reader()
 
     const index = users.findIndex(user => user.id === +userId);
 
@@ -90,7 +90,7 @@ app.delete('/users/:userId', async (req, res) => {
 
     users.splice(index,1)
 
-    await writer(users)
+    await fileServices.writer(users)
 
     res.sendStatus(204)
 });
