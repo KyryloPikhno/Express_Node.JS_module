@@ -1,6 +1,6 @@
 const express = require('express');
-
-const userDB = require('./dataBase/users')
+const fs = require('fs/promises')
+const path = require('path')
 
 const app = express()
 
@@ -13,78 +13,94 @@ app.get('/',(req,res)=>{
     res.status(201).json('localhost is works')
 })
 
-app.get('/users', (req, res) => {
-    if(!userDB){
-        res.send('users not exist')
+app.get('/users', async (req, res) => {
+    const buffer = await fs.readFile(path.join(__dirname, 'dataBase', 'users.json'))
 
-        res.status(404).json('error')
-    }else {
-        res.json(userDB)
+    const users = JSON.parse(buffer.toString())
 
-        res.status(201).json('got all users')
-    }
+    res.json(users)
 });
 
-app.get('/users/:id',(req,res)=>{
+app.get('/users/:id', async (req, res) => {
     const {id} = req.params
 
-    if(!userDB[id]|| typeof id==="number"){
-        res.send('user not exists or ID isn^t string')
+    const buffer = await fs.readFile(path.join(__dirname, 'dataBase', 'users.json'))
 
-        res.status(404).json('error')
-    }else {
-        res.json(userDB[id])
+    const users = JSON.parse(buffer.toString())
 
-        res.status(201).json('got current user')
+    const userById = users.find(user => user.id === +id)
+
+    if(!userById){
+        return res.status(404).json(`User with ${id} not found`)
     }
-})
 
-app.post('/users',(req,res)=>{
-    const userInfo = req.body
-
-    if(userInfo.name && userInfo.age) {
-        userDB.push(userInfo)
-
-        res.status(201).json('created')
-    }else {
-        res.send('user dosen^t have current properties')
-
-        res.status(404).json('error')
-    }
-})
-
-app.put('/users/:userId', (req, res) => {
-    const newUserInfo = req.body
-
-    const userId = req.params.userId
-
-    if (newUserInfo.name && newUserInfo.age) {
-        userDB[userId] = newUserInfo
-
-        res.json('Updated')
-
-        res.status(201).json('Updated')
-
-    } else if(userId && typeof userId === "number") {
-        res.status(404).json('ID isn^t string')
-    }else {
-        res.status(404).json('error')
-    }
+    res.json(userById)
 });
 
-app.delete('/users/:id',(req,res)=>{
-    const id = req.params.id
+app.post('/users', async (req, res) => {
+    const userInfo = req.body
 
-    if(id && typeof id === "string") {
-        userDB.splice(userDB[id], 1)
-
-        res.json(userDB)
-
-        res.status(201).json('deleted')
-    }else {
-        res.status(404).json('error')
+    if (userInfo.name.length < 2 || typeof userInfo.name !== 'string') {
+        return res.status(400).json('Wrong name')
     }
-})
+    if (userInfo.age < 0 || Number.isNaN(+userInfo.age)) {
+        return res.status(400).json('Wrong age')
+    }
+
+    const buffer = await fs.readFile(path.join(__dirname, 'dataBase', 'users.json'))
+
+    const users = JSON.parse(buffer.toString())
+
+    const newUser = {...userInfo, id: users[users.length - 1].id + 1}
+
+    users.push(newUser);
+
+    await fs.writeFile(path.join(__dirname, 'dataBase', 'users.json'), JSON.stringify(users))
+
+    res.status(201).json(newUser)
+});
+
+app.put('/users/:userId', async (req, res) => {
+    const newUserInfo = req.body
+
+    const {userId} = req.params
+
+    const buffer = await fs.readFile(path.join(__dirname, 'dataBase','users.json'))
+
+    const users = JSON.parse(buffer.toString())
+
+    const index = users.findIndex(user => user.id === +userId);
+
+    if(index === -1){
+        return res.status(404).json(`User ${userId} not found`)
+    }
+
+    users[index] = {...users[index], ...newUserInfo}
+
+    await fs.writeFile(path.join(__dirname, 'dataBase','users.json'),JSON.stringify(users))
+
+    res.status(201).json(users[index])
+});
+
+app.delete('/users/:userId', async (req, res) => {
+    const {userId} = req.params
+
+    const buffer = await fs.readFile(path.join(__dirname, 'dataBase','users.json'))
+
+    const users = JSON.parse(buffer.toString())
+
+    const index = users.findIndex(user => user.id === +userId);
+
+    if(index === -1){
+        return res.status(404).json(`User ${userId} not found`)
+    }
+
+    users.splice(index,1)
+
+    await fs.writeFile(path.join(__dirname, 'dataBase','users.json'),JSON.stringify(users))
+
+    res.sendStatus(204)
+});
 
 app.patch('/users/:userId', (req, res) => {
     const {userId} = req.params
