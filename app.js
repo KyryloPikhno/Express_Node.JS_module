@@ -65,7 +65,7 @@ app.put('/users/:userId', (req, res) => {
 
         res.status(201).json('Updated')
 
-    } else if(typeof userId === "number") {
+    } else if(userId && typeof userId === "number") {
         res.status(404).json('ID isn^t string')
     }else {
         res.status(404).json('error')
@@ -75,7 +75,7 @@ app.put('/users/:userId', (req, res) => {
 app.delete('/users/:id',(req,res)=>{
     const id = req.params.id
 
-    if(typeof id === "string") {
+    if(id && typeof id === "string") {
         userDB.splice(userDB[id], 1)
 
         res.json(userDB)
@@ -83,6 +83,26 @@ app.delete('/users/:id',(req,res)=>{
         res.status(201).json('deleted')
     }else {
         res.status(404).json('error')
+    }
+})
+
+app.patch('/users/:userId', (req, res) => {
+    const {userId} = req.params
+
+    const userInfo = req.body
+
+    const {age, name} = userInfo
+
+    if (age || name) {
+        if(typeof (+userId) === 'number'){
+            userDB[userId] = {...userDB[userId], ...userInfo}
+
+            res.status(200).json('updated user field')
+        }else {
+            res.send('Error with updating user field')
+
+            res.status(404).json('updated user field')
+        }
     }
 })
 

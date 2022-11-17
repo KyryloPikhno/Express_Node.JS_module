@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added status">
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added status and checks">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,7 @@
       <workItem from="1668515892441" duration="890000" />
       <workItem from="1668516938161" duration="7085000" />
       <workItem from="1668542182118" duration="1862000" />
-      <workItem from="1668706306424" duration="6934000" />
+      <workItem from="1668706306424" duration="7361000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -131,7 +131,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668712866998</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="added status and checks">
+      <created>1668713446891</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668713446893</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -154,6 +161,7 @@
     <MESSAGE value="added post method" />
     <MESSAGE value="added delete method" />
     <MESSAGE value="added status" />
-    <option name="LAST_COMMIT_MESSAGE" value="added status" />
+    <MESSAGE value="added status and checks" />
+    <option name="LAST_COMMIT_MESSAGE" value="added status and checks" />
   </component>
 </project>
