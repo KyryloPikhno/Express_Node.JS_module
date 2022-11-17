@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added delete method">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added status">
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +59,7 @@
       <workItem from="1668515892441" duration="890000" />
       <workItem from="1668516938161" duration="7085000" />
       <workItem from="1668542182118" duration="1862000" />
-      <workItem from="1668706306424" duration="6267000" />
+      <workItem from="1668706306424" duration="6934000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -125,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668711338489</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added status">
+      <created>1668712866998</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668712866998</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +153,7 @@
     <MESSAGE value="installed express" />
     <MESSAGE value="added post method" />
     <MESSAGE value="added delete method" />
-    <option name="LAST_COMMIT_MESSAGE" value="added delete method" />
+    <MESSAGE value="added status" />
+    <option name="LAST_COMMIT_MESSAGE" value="added status" />
   </component>
 </project>

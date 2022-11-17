@@ -53,22 +53,37 @@ app.post('/users',(req,res)=>{
     }
 })
 
-app.put('/users/:userId',(req,res)=>{
+app.put('/users/:userId', (req, res) => {
     const newUserInfo = req.body
 
     const userId = req.params.userId
 
-    userDB[userId] = newUserInfo
+    if (newUserInfo.name && newUserInfo.age) {
+        userDB[userId] = newUserInfo
 
-    res.json('Updated')
-})
+        res.json('Updated')
+
+        res.status(201).json('Updated')
+
+    } else if(typeof userId === "number") {
+        res.status(404).json('ID isn^t string')
+    }else {
+        res.status(404).json('error')
+    }
+});
 
 app.delete('/users/:id',(req,res)=>{
     const id = req.params.id
 
-    userDB.splice(userDB[id],1)
+    if(typeof id === "string") {
+        userDB.splice(userDB[id], 1)
 
-    res.json(userDB)
+        res.json(userDB)
+
+        res.status(201).json('deleted')
+    }else {
+        res.status(404).json('error')
+    }
 })
 
 app.listen(4000,()=>{
