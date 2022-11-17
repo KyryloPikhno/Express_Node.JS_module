@@ -95,32 +95,6 @@ app.delete('/users/:userId', async (req, res) => {
     res.sendStatus(204)
 });
 
-app.patch('/users/:userId', (req, res) => {
-    const {userId} = req.params
-
-    const userInfo = req.body
-
-    const {age, name} = userInfo
-
-    if (age || name) {
-        if (typeof (+userId) === 'number') {
-            userDB[userId] = {...userDB[userId], ...userInfo}
-
-            res.status(200).json('updated user field')
-        } else {
-            res.send('Error with updating user field')
-
-            res.status(404).json('updated user field')
-        }
-    }
-});
-
 app.listen(4000, () => {
     console.log('server works')
 });
-
-
-
-
-
-
