@@ -14,9 +14,7 @@ app.get('/',(req,res)=>{
 })
 
 app.get('/users', async (req, res) => {
-    const buffer = await fs.readFile(path.join(__dirname, 'dataBase', 'users.json'))
-
-    const users = JSON.parse(buffer.toString())
+    const users = await reader()
 
     res.json(users)
 });
@@ -24,9 +22,7 @@ app.get('/users', async (req, res) => {
 app.get('/users/:id', async (req, res) => {
     const {id} = req.params
 
-    const buffer = await fs.readFile(path.join(__dirname, 'dataBase', 'users.json'))
-
-    const users = JSON.parse(buffer.toString())
+    const users = await reader()
 
     const userById = users.find(user => user.id === +id)
 
@@ -47,15 +43,17 @@ app.post('/users', async (req, res) => {
         return res.status(400).json('Wrong age')
     }
 
-    const buffer = await fs.readFile(path.join(__dirname, 'dataBase', 'users.json'))
+    const users = await reader()
 
-    const users = JSON.parse(buffer.toString())
-
-    const newUser = {...userInfo, id: users[users.length - 1].id + 1}
+    const newUser = {
+        name: userInfo.name,
+        age: userInfo.age,
+        id: users[users.length - 1].id + 1
+    };
 
     users.push(newUser);
 
-    await fs.writeFile(path.join(__dirname, 'dataBase', 'users.json'), JSON.stringify(users))
+    await writer(users)
 
     res.status(201).json(newUser)
 });
@@ -65,9 +63,7 @@ app.put('/users/:userId', async (req, res) => {
 
     const {userId} = req.params
 
-    const buffer = await fs.readFile(path.join(__dirname, 'dataBase','users.json'))
-
-    const users = JSON.parse(buffer.toString())
+    const users = await reader()
 
     const index = users.findIndex(user => user.id === +userId);
 
@@ -77,7 +73,7 @@ app.put('/users/:userId', async (req, res) => {
 
     users[index] = {...users[index], ...newUserInfo}
 
-    await fs.writeFile(path.join(__dirname, 'dataBase','users.json'),JSON.stringify(users))
+    await writer(users)
 
     res.status(201).json(users[index])
 });
@@ -85,9 +81,7 @@ app.put('/users/:userId', async (req, res) => {
 app.delete('/users/:userId', async (req, res) => {
     const {userId} = req.params
 
-    const buffer = await fs.readFile(path.join(__dirname, 'dataBase','users.json'))
-
-    const users = JSON.parse(buffer.toString())
+    const users = await reader()
 
     const index = users.findIndex(user => user.id === +userId);
 
@@ -97,7 +91,7 @@ app.delete('/users/:userId', async (req, res) => {
 
     users.splice(index,1)
 
-    await fs.writeFile(path.join(__dirname, 'dataBase','users.json'),JSON.stringify(users))
+    await writer(users)
 
     res.sendStatus(204)
 });
@@ -126,6 +120,14 @@ app.listen(4000,()=>{
     console.log('server works')
 })
 
+const reader = async () => {
+    const buffer = await fs.readFile(path.join(__dirname, 'dataBase', 'users.json'))
+    return JSON.parse(buffer.toString())
+};
+
+const writer = async (users) => {
+    await fs.writeFile(path.join(__dirname, 'dataBase','users.json'),JSON.stringify(users))
+};
 
 
 
