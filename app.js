@@ -38,7 +38,7 @@ app.post('/users', async (req, res) => {
     if (userInfo.name.length < 2 || typeof userInfo.name !== 'string') {
         return res.status(400).json('Wrong name')
     }
-    if (userInfo.age < 0 || Number.isNaN(+userInfo.age)) {
+    if (userInfo.age < 18 || Number.isNaN(+userInfo.age)) {
         return res.status(400).json('Wrong age')
     }
 
