@@ -1,5 +1,8 @@
 const express = require('express');
 const userRouter = require('./router/user.router')
+require('dotenv').config()
+const configs = require('./config/config.env')
+
 
 const app = express()
 
@@ -14,6 +17,10 @@ app.get('/',(req,res)=>{
     res.status(201).json('localhost is works')
 })
 
-app.listen(4000, () => {
-    console.log('server works')
+app.use((err,req,res,next)=>{
+    res.status(404).json(err.message)
+})
+
+app.listen(configs.PORT, () => {
+    console.log(`server ${configs.PORT} works`)
 });

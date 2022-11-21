@@ -2,13 +2,21 @@ const {fileServices} = require("../services");
 
 
 module.exports = {
-    getAllUsers: async (req, res) => {
-        const users = await fileServices.reader()
+    getAllUsers: async (req, res,next) => {
+        try {
+            const users = await fileServices.reader()
 
-        res.json(users)
+            res.json(users)
+        }catch (e) {
+            next(e)
+        }
     },
-    getUserById: async (req, res) => {
-        res.json(req.user)
+    getUserById: async (req, res,next) => {
+        try{
+            res.json(req.user)
+        }catch (e){
+            next(e)
+        }
     },
     deleteUser: async (req, res) => {
         const {userId} = req.params
