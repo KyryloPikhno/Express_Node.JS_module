@@ -1,5 +1,6 @@
 const {fileServices} = require("../services");
 
+
 module.exports = {
     getAllUsers: async (req, res) => {
         const users = await fileServices.reader()
@@ -7,17 +8,7 @@ module.exports = {
         res.json(users)
     },
     getUserById: async (req, res) => {
-        const {id} = req.params
-
-        const users = await fileServices.reader()
-
-        const userById = users.find(user => user.id === +id)
-
-        if (!userById) {
-            return res.status(404).json(`User with ${id} not found`)
-        }
-
-        res.json(userById)
+        res.json(req.user)
     },
     deleteUser: async (req, res) => {
         const {userId} = req.params
