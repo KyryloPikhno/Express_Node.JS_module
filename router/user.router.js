@@ -3,15 +3,39 @@ const controller = require('../controller/user.controller');
 const middleware = require('../middleware/user.middleware')
 
 
-router.get('/', controller.getAllUsers);
+router.get(
+    '/',
+    controller.getAllUsers
+);
 
-router.post('/',middleware.isBodyValid, controller.postUser);
+router.post(
+    '/',
+    middleware.isBodyValid,
+    middleware.isBodyValidCreate,
+    controller.postUser
+);
 
-router.get('/:userId',middleware.checkIsUserExists, controller.getUserById);
+router.get(
+    '/:userId',
+    middleware.isIdValid,
+    middleware.checkIsUserExists,
+    controller.getUserById
+);
 
-router.put('/:userId', controller.updateUser);
+router.put(
+    '/:userId',
+    middleware.isIdValid,
+    middleware.isBodyValidUpdate,
+    middleware.checkIsUserExists,
+    controller.updateUser
+);
 
-router.delete('/:userId', controller.deleteUser);
+router.delete(
+    '/:userId',
+    middleware.isIdValid,
+    middleware.checkIsUserExists,
+    controller.deleteUser
+);
 
 
 module.exports = router;

@@ -18,22 +18,20 @@ module.exports = {
             next(e)
         }
     },
-    deleteUser: async (req, res) => {
-        const {userId} = req.params
+    deleteUser: async (req, res,next) => {
+        try {
+            const {user, users} = req
 
-        const users = await fileServices.reader()
+            const index = users.findIndex(u => u.id === user.id)
 
-        const index = users.findIndex(user => user.id === +userId);
+            users.splice(index, 1)
 
-        if (index === -1) {
-            return res.status(404).json(`User ${userId} not found`)
+            await fileServices.writer(users)
+
+            res.sendStatus(204)
+        }catch (e){
+            next(e)
         }
-
-        users.splice(index, 1)
-
-        await fileServices.writer(users)
-
-        res.sendStatus(204)
     },
     postUser: async (req, res) => {
         const userInfo = req.body
@@ -52,23 +50,22 @@ module.exports = {
 
         res.status(201).json(newUser)
     },
-    updateUser: async (req, res) => {
-        const newUserInfo = req.body
+    updateUser: async (req, res, next) => {
+        try {
+            const {user, users, body} = req
 
-        const {userId} = req.params
+            const index = users.findIndex(u => u.id === user.id)
 
-        const users = await fileServices.reader()
+            users[index] = {...users[index], ...body}
 
-        const index = users.findIndex(user => user.id === +userId);
+            await fileServices.writer(users)
 
-        if (index === -1) {
-            return res.status(404).json(`User ${userId} not found`)
+            res.status(201).json(users[index])
+
+            next()
+        } catch (e) {
+            next(e)
         }
 
-        users[index] = {...users[index], ...newUserInfo}
-
-        await fileServices.writer(users)
-
-        res.status(201).json(users[index])
     }
 };
