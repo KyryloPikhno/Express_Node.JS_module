@@ -38,13 +38,6 @@ module.exports = {
     postUser: async (req, res) => {
         const userInfo = req.body
 
-        if (userInfo.name.length < 2 || typeof userInfo.name !== 'string') {
-            return res.status(400).json('Wrong name')
-        }
-        if (userInfo.age < 18 || Number.isNaN(+userInfo.age)) {
-            return res.status(400).json('Wrong age')
-        }
-
         const users = await fileServices.reader()
 
         const newUser = {

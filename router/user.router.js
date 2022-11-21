@@ -5,9 +5,9 @@ const middleware = require('../middleware/user.middleware')
 
 router.get('/', controller.getAllUsers);
 
-router.get('/:userId',middleware.checkIsUserExists, controller.getUserById);
+router.post('/',middleware.isBodyValid, controller.postUser);
 
-router.post('/', controller.postUser);
+router.get('/:userId',middleware.checkIsUserExists, controller.getUserById);
 
 router.put('/:userId', controller.updateUser);
 
