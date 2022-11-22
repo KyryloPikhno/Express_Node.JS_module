@@ -4,6 +4,8 @@ require('dotenv').config()
 const userRouter = require('./router/user.router')
 const configs = require('./config/config.env')
 
+const mongoose = require('mongoose')
+
 const app = express()
 
 app.use(express.json());
@@ -24,6 +26,7 @@ app.use((err,req,res,next)=>{
     });
 })
 
-app.listen(configs.PORT, () => {
+app.listen(configs.PORT, async () => {
+    await mongoose.connect(configs.MONGO_URL);
     console.log(`server ${configs.PORT} works`)
 });
