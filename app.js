@@ -1,8 +1,8 @@
 const express = require('express');
-const userRouter = require('./router/user.router')
 require('dotenv').config()
-const configs = require('./config/config.env')
 
+const userRouter = require('./router/user.router')
+const configs = require('./config/config.env')
 
 const app = express()
 
@@ -18,7 +18,10 @@ app.get('/',(req,res)=>{
 })
 
 app.use((err,req,res,next)=>{
-    res.status(404).json(err.message)
+    res.status(err.status || 500).json({
+        message: err.message || 'Unknown error',
+        status: err.status || 500
+    });
 })
 
 app.listen(configs.PORT, () => {

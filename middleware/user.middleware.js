@@ -1,5 +1,5 @@
+const ApiError = require("../error/ApiError");
 const {fileServices} = require("../services");
-
 
 module.exports = {
     checkIsUserExists: async (req, res, next) => {
@@ -23,7 +23,7 @@ module.exports = {
             next(e)
         }
     },
-    isBodyValidCreate: async (req, res, next) => {
+    isBodyValidCreate: (req, res, next) => {
         try {
             const {name, age} = req.body
 
@@ -39,7 +39,7 @@ module.exports = {
             next(e)
         }
     },
-    isBodyValidUpdate: async (req, res, next) => {
+    isBodyValidUpdate:  (req, res, next) => {
         try {
             const {name, age} = req.body
 
@@ -55,7 +55,7 @@ module.exports = {
             next(e)
         }
     },
-    isIdValid: async (req, res, next) => {
+    isIdValid:  (req, res, next) => {
         try {
             const {userId} = req.params
 
