@@ -21,37 +21,19 @@ module.exports = {
     },
     deleteUser: async (req, res,next) => {
         try {
-            const {user, users} = req
-
-            const index = users.findIndex((u) => u.id === user.id)
-
-            users.splice(index, 1)
-
-            await fileServices.writer(users)
+            await User.deleteOne({_id: req.params.userId})
 
             res.sendStatus(204)
         }catch (e){
             next(e)
         }
     },
-    postUser: async (req, res,next) => {
+    postUser: async (req, res, next) => {
         try {
-            const userInfo = req.body
+            await User.create(req.body)
 
-            const users = await fileServices.reader()
-
-            const newUser = {
-                name: userInfo.name,
-                age: userInfo.age,
-                id: users[users.length - 1].id + 1
-            };
-
-            users.push(newUser);
-
-            await fileServices.writer(users)
-
-            res.status(201).json(newUser)
-        }catch (e) {
+            res.json('created')
+        } catch (e) {
             next(e)
         }
     },

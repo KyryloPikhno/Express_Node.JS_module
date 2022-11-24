@@ -1,8 +1,6 @@
 const router = require('express').Router();
-
 const controller = require('../controller/user.controller');
 const middleware = require('../middleware/user.middleware')
-
 
 router.get(
     '/',
@@ -11,7 +9,7 @@ router.get(
 
 router.post(
     '/',
-    middleware.isBodyValidCreate,
+    middleware.checkIsEmailUnique,
     controller.postUser
 );
 
