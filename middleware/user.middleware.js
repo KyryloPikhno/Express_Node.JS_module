@@ -1,14 +1,15 @@
 const ApiError = require("../error/ApiError");
 const {fileServices} = require("../services");
+const User = require('../dataBase/user')
 
 module.exports = {
     checkIsUserExists: async (req, res, next) => {
         try {
             const {userId} = req.params
 
-            const users = await fileServices.reader()
+            const users = await User.find()
 
-            const user = users.find(user => user.id === +userId)
+            const user = await User.find(userId)
 
             if (!user) {
                 throw new ApiError('not found',404)

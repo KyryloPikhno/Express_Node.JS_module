@@ -1,10 +1,11 @@
 const {fileServices} = require("../services");
+const User = require('../dataBase/user')
 
 
 module.exports = {
     getAllUsers: async (req, res,next) => {
         try {
-            const users = await fileServices.reader()
+            const users = await User.find()
 
             res.json(users)
         }catch (e) {
