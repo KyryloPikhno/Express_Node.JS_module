@@ -23,7 +23,7 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(4000, async () => {
-    await mongoose.connect('mongodb://127.0.0.1:27017/kyrylopikhno');
+app.listen(4500, async () => {
+    await mongoose.connect('mongodb://127.0.0.1:27017/admin');
     console.log(`Server listen ${configs.PORT}`);
 })
