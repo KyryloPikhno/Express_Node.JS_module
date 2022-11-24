@@ -1,71 +1,42 @@
+const User = require("../dataBase/User");
 const ApiError = require("../error/ApiError");
-const {fileServices} = require("../services");
 
 module.exports = {
-    checkIsUserExists: async (req, res, next) => {
+    checkIsUserExist: async (req, res, next) => {
         try {
-            const {userId} = req.params
+            const { userId } = req.params;
 
-            const users = await fileServices.reader()
-
-            const user = users.find(user => user.id === +userId)
+            const user = await User.findById(userId);
 
             if (!user) {
-                throw new ApiError('not found',404)
+                throw new ApiError('Inna not found', 404);
             }
 
-            req.users = users
-
-            req.user = user
+            req.user = user;
 
             next();
         } catch (e) {
-            next(e)
+            next(e);
         }
     },
-    isBodyValidCreate: (req, res, next) => {
-        try {
-            const {name, age} = req.body
 
-            if (!name || name.length < 2 || typeof name !== 'string') {
-                throw new ApiError('wrong name',400)
+    checkIsEmailUnique: async (req, res, next) => {
+        try {
+            const { email } = req.body;
+
+            if (!email) {
+                throw new ApiError('Email not present', 400);
             }
-            if (!age || age < 18 || Number.isNaN(+age)) {
-                throw new ApiError('wrong age',400)
+
+            const user = await User.findOne({ email });
+
+            if (user) {
+                throw new ApiError('User with this email already exists', 409);
             }
 
             next();
-        }catch (e) {
-            next(e)
+        } catch (e) {
+            next(e);
         }
     },
-    isBodyValidUpdate:  (req, res, next) => {
-        try {
-            const {name, age} = req.body
-
-            if (name && (name.length < 2 || typeof name !== 'string')) {
-                throw new ApiError('wrong name',400)
-            }
-            if (age && (age < 18 || Number.isNaN(+age))) {
-                throw new ApiError('wrong age',400)
-            }
-
-            next();
-        }catch (e) {
-            next(e)
-        }
-    },
-    isIdValid:  (req, res, next) => {
-        try {
-            const {userId} = req.params
-
-            if (userId < 0 || Number.isNaN(+userId)) {
-                throw new ApiError('not valid id',400)
-            }
-
-            next();
-        }catch (e) {
-            next(e)
-        }
-    }
-};
+}

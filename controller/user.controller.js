@@ -1,74 +1,54 @@
-const {fileServices} = require("../services");
-
+const User = require("../dataBase/User");
 
 module.exports = {
-    getAllUsers: async (req, res,next) => {
+    getAllUsers: async (req, res, next) => {
         try {
-            const users = await fileServices.reader()
+            const users = await User.find({});
 
-            res.json(users)
-        }catch (e) {
-            next(e)
+            res.json(users);
+        } catch (e) {
+            next(e);
         }
     },
-    getUserById: async (req, res,next) => {
-        try{
-            res.json(req.user)
-        }catch (e){
-            next(e)
-        }
-    },
-    deleteUser: async (req, res,next) => {
+
+    getUserById: (req, res, next) => {
         try {
-            const {user, users} = req
-
-            const index = users.findIndex((u) => u.id === user.id)
-
-            users.splice(index, 1)
-
-            await fileServices.writer(users)
-
-            res.sendStatus(204)
-        }catch (e){
-            next(e)
-        }
-    },
-    postUser: async (req, res,next) => {
-        try {
-            const userInfo = req.body
-
-            const users = await fileServices.reader()
-
-            const newUser = {
-                name: userInfo.name,
-                age: userInfo.age,
-                id: users[users.length - 1].id + 1
-            };
-
-            users.push(newUser);
-
-            await fileServices.writer(users)
-
-            res.status(201).json(newUser)
-        }catch (e) {
-            next(e)
-        }
-    },
-    updateUser: async (req, res, next) => {
-        try {
-            const {user, users, body} = req
-
-            const index = users.findIndex((u) => u.id === user.id)
-
-            users[index] = {...users[index], ...body}
-
-            await fileServices.writer(users)
-
-            res.status(201).json(users[index])
-
+            res.json(req.user);
         } catch (e) {
             next(e)
         }
+    },
 
+    updateUser: async (req, res, next) => {
+        try {
+            const newUserInfo = req.body;
+            const userId = req.params.userId;
+
+            await User.findByIdAndUpdate(userId, newUserInfo);
+
+            res.json('Updated')
+        } catch (e) {
+            next(e);
+        }
+    },
+
+    createUser: async (req, res, next) => {
+        try {
+            await User.create(req.body);
+
+            res.json('Ok')
+        } catch (e) {
+            next(e);
+        }
+    },
+
+    deleteUserById: async (req, res, next) => {
+        try {
+            await User.deleteOne({ _id: req.params.userId });
+
+            res.status(204).send('Ok')
+        } catch (e) {
+            next(e);
+        }
     }
-};
+}

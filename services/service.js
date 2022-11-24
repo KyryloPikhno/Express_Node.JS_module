@@ -11,4 +11,4 @@ module.exports = {
        const buffer = await fs.readFile(pathToFile)
         return JSON.parse(buffer.toString())
     }
-};
+}
