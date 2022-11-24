@@ -1,10 +1,9 @@
 const express = require('express');
+const mongoose = require('mongoose')
 require('dotenv').config()
 
 const userRouter = require('./router/user.router')
 const configs = require('./config/config.env')
-
-const mongoose = require('mongoose')
 
 const app = express()
 
@@ -27,6 +26,6 @@ app.use((err,req,res,next)=>{
 })
 
 app.listen(configs.PORT, async () => {
-    await mongoose.connect(configs.MONGO_URL);
+    await mongoose.connect('mongodb://localhost:27017/test');
     console.log(`server ${configs.PORT} works`)
 });
