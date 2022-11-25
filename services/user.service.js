@@ -11,10 +11,10 @@ module.exports = {
     create: async (userInfo) => {
         return User.create(userInfo)
     },
-    updateOne: async (userId,newInfo) => {
-        return User.findByIdAndUpdate(userId,newInfo)
+    updateOne: async (userId, newInfo) => {
+        return User.findByIdAndUpdate(userId, newInfo, {new: true})
     },
-    deleteOne:async (userId) =>{
-        return User.deleteOne({_id:userId})
+    deleteOne: async (userId) => {
+        return User.deleteOne({_id: userId})
     }
 };
