@@ -1,4 +1,4 @@
-const User = require("../dataBase/User");
+const {User} = require("../dataBase");
 
 
 module.exports = {
