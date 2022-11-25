@@ -1,6 +1,7 @@
 const User = require("../dataBase/User");
 const ApiError = require("../error/ApiError");
 
+
 module.exports = {
     checkIsUserExist: async (req, res, next) => {
         try {

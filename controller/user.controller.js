@@ -1,9 +1,11 @@
 const User = require("../dataBase/User");
+const {userService} = require("../services");
+
 
 module.exports = {
     getAllUsers: async (req, res, next) => {
         try {
-            const users = await User.find({});
+            const users = userService.findByParams({})
 
             res.json(users);
         } catch (e) {
@@ -24,7 +26,7 @@ module.exports = {
             const newUserInfo = req.body;
             const userId = req.params.userId;
 
-            await User.findByIdAndUpdate(userId, newUserInfo);
+            await userService.updateOne(userId,newUserInfo)
 
             res.json('Updated')
         } catch (e) {
