@@ -12,8 +12,12 @@ module.exports = {
         }
     },
 
-    getUserById: (req, res, next) => {
+    getUserById: async (req, res, next) => {
         try {
+            const{userId} = req.params
+
+            const user = await userService.findOneByParams(userId)
+
             res.json(req.user);
         } catch (e) {
             next(e)

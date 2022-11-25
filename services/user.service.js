@@ -5,8 +5,8 @@ module.exports = {
     findByParams: async (filter = {}) => {
         return User.find(filter)
     },
-    findOneByParams: async (filter = {}) => {
-        return User.findOne(filter)
+    findOneByParams: async (filter ={}) => {
+        return User.findById(filter).populate('car')
     },
     create: async (userInfo) => {
         return User.create(userInfo)

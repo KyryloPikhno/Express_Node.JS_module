@@ -11,6 +11,17 @@ module.exports = {
             next(e);
         }
     },
+    getCarById: async (req, res, next) => {
+        try {
+            const{carId} = req.params
+
+            const car = await carService.findOneByIdWithUser(carId)
+
+            res.json(car);
+        } catch (e) {
+            next(e);
+        }
+    },
 
     createCar: async (req, res, next) => {
         try {
