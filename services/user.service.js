@@ -2,10 +2,19 @@ const User = require("../dataBase/User");
 
 
 module.exports = {
-    findByParams: async (filter) => {
+    findByParams: async (filter = {}) => {
         return User.find(filter)
     },
-    updateOne: async (filter) =>{
-        return User.findByIdAndUpdate(filter)
+    findOneByParams: async (filter = {}) => {
+        return User.findOne(filter)
+    },
+    create: async (userInfo) => {
+        return User.create(userInfo)
+    },
+    updateOne: async (userId,newInfo) => {
+        return User.findByIdAndUpdate(userId,newInfo)
+    },
+    deleteOne:async (userId) =>{
+        return User.deleteOne({_id:userId})
     }
-}
+};

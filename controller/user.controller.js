@@ -1,11 +1,10 @@
-const User = require("../dataBase/User");
 const {userService} = require("../services");
 
 
 module.exports = {
     getAllUsers: async (req, res, next) => {
         try {
-            const users = userService.findByParams({})
+            const users = await userService.findByParams()
 
             res.json(users);
         } catch (e) {
@@ -26,7 +25,7 @@ module.exports = {
             const newUserInfo = req.body;
             const userId = req.params.userId;
 
-            await userService.updateOne(userId,newUserInfo)
+            await userService.updateOne(userId, newUserInfo)
 
             res.json('Updated')
         } catch (e) {
@@ -36,7 +35,7 @@ module.exports = {
 
     createUser: async (req, res, next) => {
         try {
-            await User.create(req.body);
+            await userService.create(req.body)
 
             res.json('Ok')
         } catch (e) {
@@ -46,11 +45,11 @@ module.exports = {
 
     deleteUserById: async (req, res, next) => {
         try {
-            await User.deleteOne({ _id: req.params.userId });
+            await userService.deleteOne(req.params.userId)
 
             res.status(204).send('Ok')
         } catch (e) {
             next(e);
         }
     }
-}
+};
