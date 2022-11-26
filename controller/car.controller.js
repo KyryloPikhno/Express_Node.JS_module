@@ -1,4 +1,4 @@
-const {carService} = require("../services");
+const {carService} = require("../service");
 
 
 module.exports = {
