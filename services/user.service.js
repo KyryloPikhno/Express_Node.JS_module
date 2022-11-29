@@ -5,8 +5,26 @@ module.exports = {
     findByParams: async (filter = {}) => {
         return User.find(filter)
     },
-    findOneByParams: async (filter ={}) => {
-        return User.findById(filter).populate('car')
+    findOneByParams: async (filter = {}) => {
+        return User.findById(filter)
+    },
+    findByIdWithCars: async (userId) => {
+        return User.aggregate([
+            {
+                $match: {
+                    _id:userId
+                }
+            },
+            {
+                $lookup: {
+                    from: 'cars',
+                    localField: '_id',
+                    foreignField: 'user',
+                    as: 'cars'
+                },
+
+            }
+        ])
     },
     create: async (userInfo) => {
         return User.create(userInfo)

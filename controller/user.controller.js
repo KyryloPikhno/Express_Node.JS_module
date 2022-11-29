@@ -14,11 +14,10 @@ module.exports = {
 
     getUserById: async (req, res, next) => {
         try {
-            const{userId} = req.params
 
-            const user = await userService.findOneByParams(userId)
+            const user = await userService.findByIdWithCars(req.user._id)
 
-            res.json(req.user);
+            res.json(user);
         } catch (e) {
             next(e)
         }
