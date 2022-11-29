@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "Ssratr": "brew services start mongodb-community@5.0",
+    "Sstop": "brew services stop mongodb-community@5.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/VictorKmin/june-2022.git"
