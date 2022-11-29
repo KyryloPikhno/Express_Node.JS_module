@@ -16,17 +16,17 @@ module.exports = {
     },
 
     generateAccessTokenPair: (dataToSign = {}) => {
-        const accessToken = jwt.sign(dataToSign, ACCESS_SECRET,{ expiresIn: '15m' });
-        const refreshToken = jwt.sign(dataToSign, REFRESH_SECRET, { expiresIn: '30d' });
+        const accessToken = jwt.sign(dataToSign, ACCESS_SECRET, {expiresIn: '15m'});
+        const refreshToken = jwt.sign(dataToSign, REFRESH_SECRET, {expiresIn: '30d'});
 
         return {
             accessToken,
             refreshToken
         }
     },
-    checkToken: (token = '',tokenType='accessToken') => {
+    checkToken: (token = '', tokenType = 'accessToken') => {
 
 
         return jwt.verify(token, tokenType)
     }
-}
+};
