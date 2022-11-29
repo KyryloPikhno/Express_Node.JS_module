@@ -9,10 +9,10 @@ module.exports = {
         return User.findById(filter)
     },
     findByIdWithCars: async (userId) => {
-        return User.aggregate([
+        const res = await User.aggregate([
             {
                 $match: {
-                    _id:userId
+                    _id: userId
                 }
             },
             {
@@ -25,6 +25,7 @@ module.exports = {
 
             }
         ])
+        return res[0]
     },
     create: async (userInfo) => {
         return User.create(userInfo)
