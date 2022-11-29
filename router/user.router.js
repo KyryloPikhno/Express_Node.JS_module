@@ -21,6 +21,11 @@ router.put(
     mdlwr.getUserDynamically('userId', 'params', '_id'),
     controller.updateUser
 );
-router.delete('/:userId', mdlwr.isUserIdValid, controller.deleteUserById);
+router.delete(
+    '/:userId',
+    mdlwr.isUserIdValid,
+    authMdlwr.checkAssessToken,
+    controller.deleteUserById
+);
 
 module.exports = router;
