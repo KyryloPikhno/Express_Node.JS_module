@@ -2,6 +2,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const ApiError = require("../error/ApiError");
 const {ACCESS_SECRET,REFRESH_SECRET} = require("../config/config");
+const {tokenTypeEnum} = require("../enum");
 
 module.exports = {
     hashPassword: (password) => bcrypt.hash(password, 10),
@@ -23,14 +24,13 @@ module.exports = {
             refreshToken
         }
     },
-    checkToken: (token = '', tokenType = 'accessToken') => {
+    checkToken: (token = '', tokenType = tokenTypeEnum.accessToken) => {
         try {
             let secret = ''
 
-            if (tokenType === 'accessToken') {
+            if (tokenType === tokenTypeEnum.refreshToken) {
                 secret = ACCESS_SECRET
-            }
-            if (tokenType === 'refreshToken') {
+            }else if (tokenType === tokenTypeEnum.refreshToken) {
                 secret = REFRESH_SECRET
             }
 
