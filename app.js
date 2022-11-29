@@ -15,7 +15,7 @@ app.use('/auth', authRouter);
 app.use('/users', userRouter);
 
 app.get('/', (req, res) => {
-    res.json('WELOCME')
+    res.json('WELCOME')
 });
 
 app.use((err, req, res, next) => {
