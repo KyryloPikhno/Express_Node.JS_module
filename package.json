@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "Sstart": "brew services start mongodb-community@5.0",
+    "Sstop": "brew services stop mongodb-community@5.0",
+    "node": "nodemon app.js"
   },
   "repository": {
     "type": "git",

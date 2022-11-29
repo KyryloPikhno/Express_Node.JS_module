@@ -3,26 +3,26 @@ const {userService} = require("../service");
 const {userNormalizator} = require("../helper");
 const userValidator = require('../validator/user.validator');
 const commonValidator = require('../validator/common.validators')
+const {User} = require("../dataBase");
 
 module.exports = {
-    checkIsUserExist: async (req, res, next) => {
+    getUserDynamically: (fieldName, from = 'body', dbField = fieldName) => async (req, res, next) => {
         try {
-            const {userId} = req.params;
+            const fieldToSearch = req[from][fieldName]
 
-            const user = await userService.findOneByParams({_id: userId})
+            const user = await  User.findOne({[dbField]:fieldToSearch})
 
             if (!user) {
-                throw new ApiError('Inna not found', 404);
+                throw new ApiError('not found', 404);
             }
 
-            req.user = user;
+            req.user = user
 
             next();
         } catch (e) {
             next(e);
         }
     },
-
     checkIsEmailUnique: async (req, res, next) => {
         try {
             const {email} = req.body;

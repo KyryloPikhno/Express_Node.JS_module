@@ -6,7 +6,7 @@ const regexp = require('../config/regexp.enum')
 module.exports = {
     newUserValidator: Joi.object({
         name: Joi.string().min(2).max(50).required().default(''),
-        email: Joi.string().regex(regexp.EMAIL).lowercase().trim(),
+        email: Joi.string().regex(regexp.EMAIL).lowercase().trim().required(),
         password:Joi.string().regex(regexp.PASSWORD).required(),
         age:Joi.number().integer().min(1).max(120)
     }),
