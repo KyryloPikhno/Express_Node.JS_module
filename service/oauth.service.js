@@ -25,8 +25,19 @@ module.exports = {
         }
     },
     checkToken: (token = '', tokenType = 'accessToken') => {
+        try {
+            let secret = ''
 
+            if (tokenType === 'accessToken') {
+                secret = ACCESS_SECRET
+            }
+            if (tokenType === 'refreshToken') {
+                secret = REFRESH_SECRET
+            }
 
-        return jwt.verify(token, tokenType)
+            return jwt.verify(token, secret)
+        } catch (e) {
+            throw ApiError('Token not valid',401)
+        }
     }
 };
