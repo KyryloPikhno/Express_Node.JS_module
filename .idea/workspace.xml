@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added .env">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/email-action.enum.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/email-action.enum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-templates/container.pug" beforeDir="false" afterPath="$PROJECT_DIR$/email-templates/container.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-templates/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/email-templates/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-templates/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/email-templates/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-templates/welcome.pug" beforeDir="false" afterPath="$PROJECT_DIR$/email-templates/welcome.pug" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/email.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/email.service.js" afterDir="false" />
-    </list>
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added locals" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,7 +60,7 @@
       <workItem from="1669751128360" duration="2693000" />
       <workItem from="1669921290978" duration="3082000" />
       <workItem from="1669924570594" duration="3779000" />
-      <workItem from="1669928433366" duration="2491000" />
+      <workItem from="1669928433366" duration="2563000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -190,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669928356019</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="added locals">
+      <created>1669930993857</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669930993857</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -214,6 +212,7 @@
     <MESSAGE value="added express" />
     <MESSAGE value="added auth" />
     <MESSAGE value="added .env" />
-    <option name="LAST_COMMIT_MESSAGE" value="added .env" />
+    <MESSAGE value="added locals" />
+    <option name="LAST_COMMIT_MESSAGE" value="added locals" />
   </component>
 </project>
