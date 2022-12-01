@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added auth" />
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added .env" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="homework_5.1_(auth)" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -56,6 +56,7 @@
       <workItem from="1668086285573" duration="1794000" />
       <workItem from="1669748119260" duration="25000" />
       <workItem from="1669751128360" duration="2693000" />
+      <workItem from="1669921290978" duration="356000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -141,7 +142,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669754020305</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added auth">
+      <created>1669921329690</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669921329690</updated>
+    </task>
+    <task id="LOCAL-00014" summary="added .env">
+      <created>1669921569396</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1669921569396</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +179,7 @@
     <MESSAGE value="added mdlwr" />
     <MESSAGE value="added express" />
     <MESSAGE value="added auth" />
-    <option name="LAST_COMMIT_MESSAGE" value="added auth" />
+    <MESSAGE value="added .env" />
+    <option name="LAST_COMMIT_MESSAGE" value="added .env" />
   </component>
 </project>
