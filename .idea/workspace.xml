@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added express">
-      <change afterPath="$PROJECT_DIR$/enum/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/enum/tokenType.enum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/auth.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/auth.middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/auth.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/router/auth.router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service/oauth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/oauth.service.js" afterDir="false" />
-    </list>
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added auth" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,7 +55,7 @@
       <updated>1668086281470</updated>
       <workItem from="1668086285573" duration="1794000" />
       <workItem from="1669748119260" duration="25000" />
-      <workItem from="1669751128360" duration="2650000" />
+      <workItem from="1669751128360" duration="2693000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -142,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669751596528</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="added auth">
+      <created>1669754020305</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669754020305</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +163,7 @@
     <MESSAGE value="added validator" />
     <MESSAGE value="added mdlwr" />
     <MESSAGE value="added express" />
-    <option name="LAST_COMMIT_MESSAGE" value="added express" />
+    <MESSAGE value="added auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="added auth" />
   </component>
 </project>
