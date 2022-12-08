@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added locals">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/auth.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/auth.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/router/auth.router.js" afterDir="false" />
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added logout">
+      <change beforePath="$PROJECT_DIR$/middleware/auth.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/auth.middleware.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +64,7 @@
       <workItem from="1669924570594" duration="3779000" />
       <workItem from="1669928433366" duration="2563000" />
       <workItem from="1669931057488" duration="700000" />
-      <workItem from="1670507968256" duration="1285000" />
+      <workItem from="1670507968256" duration="2109000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -222,7 +220,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670508039194</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added logout">
+      <created>1670509430503</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1670509430504</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +252,7 @@
     <MESSAGE value="added auth" />
     <MESSAGE value="added .env" />
     <MESSAGE value="added locals" />
-    <option name="LAST_COMMIT_MESSAGE" value="added locals" />
+    <MESSAGE value="added logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="added logout" />
   </component>
 </project>
