@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added logout">
+      <change afterPath="$PROJECT_DIR$/config/token-action.enum.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email-templates/forgot-pass.pug" beforeDir="false" afterPath="$PROJECT_DIR$/email-templates/forgot-pass.pug" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/email-templates/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/email-templates/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service/oauth.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/oauth.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="homework_6_(Node.Mailer)" />
+        <entry key="$PROJECT_DIR$" value="homework_6.1_(Node.Mailer)" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -65,7 +70,7 @@
       <workItem from="1669928433366" duration="2563000" />
       <workItem from="1669931057488" duration="700000" />
       <workItem from="1670507968256" duration="2195000" />
-      <workItem from="1670604481497" duration="603000" />
+      <workItem from="1670604481497" duration="2515000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -235,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670510302915</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added logout">
+      <created>1670606557890</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1670606557894</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
