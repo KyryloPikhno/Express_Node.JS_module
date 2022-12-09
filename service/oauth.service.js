@@ -35,13 +35,10 @@ module.exports = {
                 break
             case tokenTypes.FORGOT_PASSWORD:
                 secretWord = FORGOT_PASSWORD_ACTION_TOKEN_SECRET
+                break
         }
 
-        const actionToken = jwt.sign(dataToSign, ACCESS_SECRET, {expiresIn: '7d'});
-
-        return {
-            actionToken
-        }
+        return jwt.sign(dataToSign, secretWord, {expiresIn: '7d'});
     },
 
     checkToken: (token = '', tokenType = tokenTypeEnum.accessToken) => {
