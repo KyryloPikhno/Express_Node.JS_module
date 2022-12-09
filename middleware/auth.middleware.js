@@ -1,4 +1,5 @@
 const authValidator = require('../validator/auth.validator');
+const ActionToken = require('../dataBase/ActionToken')
 const ApiError = require("../error/ApiError");
 const oauthService = require("../service/oauth.service");
 const OAuth = require('../dataBase/OAuth')
@@ -76,11 +77,13 @@ module.exports = {
 
             oauthService.checkActionToken(actionToken, FORGOT_PASSWORD)
 
-            // const tokenInfo = await OAuth.findOne({actionToken})
+            const tokenInfo = await ActionToken
+                .findOne({token: actionToken, tokenType: FORGOT_PASSWORD})
+                .populate('_user_id')
 
-            // if (!tokenInfo) {
-            //     throw new ApiError('token is not valid',401);
-            // }
+            if (!tokenInfo) {
+                throw new ApiError('token is not valid', 401);
+            }
 
             next();
         } catch (e) {
