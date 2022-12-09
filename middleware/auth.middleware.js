@@ -85,6 +85,8 @@ module.exports = {
                 throw new ApiError('token is not valid', 401);
             }
 
+            req.user = tokemInfo._user_id
+
             next();
         } catch (e) {
             next(e);

@@ -1,11 +1,11 @@
+const ActionToken = require("../dataBase/ActionToken");
+const emailService = require('../service/email.service')
 const oauthService = require("../service/oauth.service");
 const OAuth = require("../dataBase/OAuth");
-const ActionToken = require("../dataBase/ActionToken");
 const User = require("../dataBase/User");
-const emailService = require('../service/email.service')
-const {WELCOME, FORGOT_PASS} = require("../config/email-action.enum");
 const {FORGOT_PASSWORD} = require("../config/token-action.enum");
 const {FRONTEND_URL} = require("../config/config");
+const {WELCOME, FORGOT_PASS} = require("../config/email-action.enum");
 
 
 module.exports = {
