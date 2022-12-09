@@ -2,6 +2,7 @@ const oauthService = require("../service/oauth.service");
 const OAuth = require("../dataBase/OAuth");
 const emailService = require('../service/email.service')
 const {WELCOME} = require("../config/email-action.enum");
+const {FORGOT_PASSWORD} = require("../config/token-action.enum");
 
 
 module.exports = {
@@ -61,6 +62,20 @@ module.exports = {
             await OAuth.deleteMany({_user_id})
 
             res.sendStatus(204);
+        } catch (e) {
+            next(e);
+        }
+    },
+
+    forgotPassword: async (req, res, next) => {
+        try {
+            const user = req.user
+
+            const actionToken = oauthService.generateActionToken(FORGOT_PASSWORD, {email: user.email});
+
+            await emailService.sendEmail('Mr.Good@i.ua')
+
+            res.sendStatus(200);
         } catch (e) {
             next(e);
         }

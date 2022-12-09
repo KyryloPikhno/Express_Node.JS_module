@@ -7,6 +7,8 @@ const userMdlwr = require('../middleware/user.middleware');
 router.post('/login', mdlwr.isBodyValid, userMdlwr.getUserDynamically('email'), controller.login);
 
 router.post('/refresh',mdlwr.checkRefreshToken, controller.refresh);
+router.post('/password/forgot',userMdlwr.getUserDynamically('email'), controller.forgotPassword);
+
 
 router.post('/logout', mdlwr.checkAssessToken, controller.logout);
 
