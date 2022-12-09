@@ -3,6 +3,7 @@ const ApiError = require("../error/ApiError");
 const oauthService = require("../service/oauth.service");
 const OAuth = require('../dataBase/OAuth')
 const {tokenTypeEnum} = require("../enum");
+const {FORGOT_PASSWORD} = require("../config/token-action.enum");
 
 module.exports = {
     isBodyValid: async (req, res, next) => {
@@ -18,12 +19,13 @@ module.exports = {
             next(e);
         }
     },
+
     checkAssessToken: async (req, res, next) => {
         try {
-            const accessToken =  req.get('Authorization')
+            const accessToken = req.get('Authorization')
 
             if (!accessToken) {
-                throw new ApiError('No accessToken',401);
+                throw new ApiError('No accessToken', 401);
             }
 
             oauthService.checkToken(accessToken)
@@ -31,7 +33,7 @@ module.exports = {
             const tokenInfo = await OAuth.findOne({accessToken})
 
             if (!tokenInfo) {
-                throw new ApiError('token is not valid',401);
+                throw new ApiError('token is not valid', 401);
             }
 
             req.tokenInfo = tokenInfo
@@ -40,12 +42,13 @@ module.exports = {
             next(e);
         }
     },
+
     checkRefreshToken: async (req, res, next) => {
         try {
-            const refreshToken =  req.get('Authorization')
+            const refreshToken = req.get('Authorization')
 
             if (!refreshToken) {
-                throw new ApiError('No refreshToken',401);
+                throw new ApiError('No refreshToken', 401);
             }
 
             oauthService.checkToken(refreshToken, tokenTypeEnum.refreshToken)
@@ -53,7 +56,7 @@ module.exports = {
             const tokenInfo = await OAuth.findOne({refreshToken})
 
             if (!tokenInfo) {
-                throw new ApiError('token is not valid',401);
+                throw new ApiError('token is not valid', 401);
             }
 
             req.tokenInfo = tokenInfo
@@ -62,4 +65,26 @@ module.exports = {
             next(e);
         }
     },
-}
+
+    checkActionToken: async (req, res, next) => {
+        try {
+            const actionToken = req.get('Authorization')
+
+            if (!actionToken) {
+                throw new ApiError('No actionToken', 401);
+            }
+
+            oauthService.checkActionToken(actionToken, FORGOT_PASSWORD)
+
+            // const tokenInfo = await OAuth.findOne({actionToken})
+
+            // if (!tokenInfo) {
+            //     throw new ApiError('token is not valid',401);
+            // }
+
+            next();
+        } catch (e) {
+            next(e);
+        }
+    },
+};

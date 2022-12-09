@@ -1,8 +1,10 @@
 const oauthService = require("../service/oauth.service");
 const OAuth = require("../dataBase/OAuth");
+const User = require("../dataBase/User");
 const emailService = require('../service/email.service')
-const {WELCOME} = require("../config/email-action.enum");
+const {WELCOME, FORGOT_PASS} = require("../config/email-action.enum");
 const {FORGOT_PASSWORD} = require("../config/token-action.enum");
+const {FRONTEND_URL} = require("../config/config");
 
 
 module.exports = {
@@ -73,12 +75,28 @@ module.exports = {
 
             const actionToken = oauthService.generateActionToken(FORGOT_PASSWORD, {email: user.email});
 
-            await emailService.sendEmail('Mr.Good@i.ua')
+            const forgotPassUrl = `${FRONTEND_URL}/password/new?token=${actionToken}`
 
-            res.sendStatus(200);
+            await emailService.sendEmail('Mr.Good@i.ua', FORGOT_PASS, {url: forgotPassUrl})
+
+            res.json('ok');
         } catch (e) {
             next(e);
         }
-    }
+    },
+
+    forgotPasswordAfterForgot: async (req, res, next) => {
+        try {
+            const hashPassword = await oauthService.hashPassword(req.body.password)
+
+            await User.updateOne({_id: req.user._id},{password:hashPassword})
+
+            //delete action token
+
+            res.json('ok')
+        } catch (e) {
+            next(e);
+        }
+    },
 };
 

@@ -56,4 +56,23 @@ module.exports = {
             throw new ApiError('Token not valid', 401)
         }
     },
+
+    checkActionToken: (token = '', actionType) => {
+        try {
+            let secretWord = ''
+
+            switch (actionType) {
+                case tokenTypes.CONFIRM_ACCOUNT:
+                    secretWord = CONFIRM_ACCOUNT_ACTION_TOKEN_SECRET
+                    break
+                case tokenTypes.FORGOT_PASSWORD:
+                    secretWord = FORGOT_PASSWORD_ACTION_TOKEN_SECRET
+                    break
+            }
+
+            jwt.verify(token, secretWord)
+        } catch (e) {
+            throw new ApiError('Token not valid', 401)
+        }
+    },
 };
