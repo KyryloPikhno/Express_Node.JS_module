@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added forgotPassword">
-      <change afterPath="$PROJECT_DIR$/email-templates/layouts/main.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-templates/partials/footer.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-templates/partials/header.hbs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/email-templates/views/welcome.hbs" afterDir="false" />
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added hbs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-templates/container.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-templates/forgot-pass.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-templates/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/email-templates/welcome.pug" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/auth.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service/email.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/service/email.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +73,9 @@
       <workItem from="1669931057488" duration="700000" />
       <workItem from="1670507968256" duration="2195000" />
       <workItem from="1670604481497" duration="9070000" />
-      <workItem from="1670680465355" duration="4242000" />
+      <workItem from="1670680465355" duration="6461000" />
+      <workItem from="1670773115532" duration="47000" />
+      <workItem from="1670850501531" duration="677000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -314,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670681833604</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added hbs">
+      <created>1670685121786</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1670685121786</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -342,6 +343,7 @@
     <MESSAGE value="added logout" />
     <MESSAGE value="added generateActionToken" />
     <MESSAGE value="added forgotPassword" />
-    <option name="LAST_COMMIT_MESSAGE" value="added forgotPassword" />
+    <MESSAGE value="added hbs" />
+    <option name="LAST_COMMIT_MESSAGE" value="added hbs" />
   </component>
 </project>

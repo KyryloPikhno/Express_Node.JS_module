@@ -72,14 +72,14 @@ module.exports = {
 
     forgotPassword: async (req, res, next) => {
         try {
-            const user = req.user
+            const {_id,email,name} = req.user
 
-            const actionToken = oauthService.generateActionToken(FORGOT_PASSWORD, {email: user.email});
+            const actionToken = oauthService.generateActionToken(FORGOT_PASSWORD, {email: email});
 
             const forgotPassUrl = `${FRONTEND_URL}/password/new?token=${actionToken}`
 
-            await ActionToken.create({token: actionToken, tokenType: FORGOT_PASSWORD, _user_id: user._id})
-            await emailService.sendEmail('Mr.Good@i.ua', FORGOT_PASS, {url: forgotPassUrl})
+            await ActionToken.create({token: actionToken, tokenType: FORGOT_PASSWORD, _user_id: _id})
+            await emailService.sendEmail('Mr.Good@i.ua', FORGOT_PASS, {url: forgotPassUrl,userName: name})
 
             res.json('ok');
         } catch (e) {

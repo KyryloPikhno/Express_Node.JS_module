@@ -8,6 +8,7 @@ const ApiError = require("../error/ApiError");
 
 const sendEmail = async (receiverMail, emailAction, locals = {}) => {
     const transporter = nodemailer.createTransport({
+        from: 'No reply',
         service: 'gmail',
         auth: {
             user: NO_REPLY_EMAIL,
@@ -29,15 +30,14 @@ const sendEmail = async (receiverMail, emailAction, locals = {}) => {
             extname: '.hbs'
         },
         extName: '.hbs',
-        partialsDir: path.join(process.cwd(), 'email-templates', 'views'),
+        viewPath: path.join(process.cwd(), 'email-templates', 'views'),
     };
 
-    transporter.use('', hbs(options));
+    transporter.use('compile', hbs(options));
 
     locals.frontendURL = FRONTEND_URL
 
     return transporter.sendMail({
-        from: 'No reply',
         to: receiverMail,
         subject: templateInfo.subject,
         template: templateInfo.templateName,
