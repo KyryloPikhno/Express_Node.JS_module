@@ -88,7 +88,7 @@ module.exports = {
                 throw new ApiError('token is not valid', 401);
             }
 
-            req.user = tokemInfo._user_id
+            req.user = tokenInfo._user_id
 
             next();
         } catch (e) {
@@ -100,22 +100,19 @@ module.exports = {
         try {
             const {user,body} = req.user
 
-            const oldPasswords = await OldPassword.find({_user_id: user._id}).lean()
+            const oldPasswords = await OldPassword.find({_user_id: user._id}, {_id: 0}).lean();
 
             if (!oldPasswords.lenght) {
                 return next()
             }
 
-            const results = await  Promise.all(
-                oldPasswords.map(async(record)=>{
-                    return await compareOldPasswords(record.password,body.password)
-                })
-            )
+            const results = await Promise.all(oldPasswords.map((record) => compareOldPasswords(record.password, body.password)));
 
+            const condition = results.some((res)=>res)
 
-            // if(condition){
-            //     throw  new ApiError('This is old password ', 409)
-            // }
+            if(condition){
+                throw  new ApiError('This is old password ', 409)
+            }
 
             next();
         } catch (e) {
