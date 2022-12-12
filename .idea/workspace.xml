@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added cron">
-      <change afterPath="$PROJECT_DIR$/dataBase/OldPasswords.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cron/removeOldPasswords.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/auth.controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cron/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/cron/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cron/removeOldTokens.js" beforeDir="false" afterPath="$PROJECT_DIR$/cron/removeOldTokens.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataBase/OldPasswords.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataBase/OldPasswords.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +78,7 @@
       <workItem from="1670604481497" duration="9070000" />
       <workItem from="1670680465355" duration="6461000" />
       <workItem from="1670773115532" duration="47000" />
-      <workItem from="1670850501531" duration="5799000" />
+      <workItem from="1670850501531" duration="6421000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -335,7 +339,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670856663170</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="added cron">
+      <created>1670857499833</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1670857499833</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
