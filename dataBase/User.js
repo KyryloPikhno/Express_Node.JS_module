@@ -3,13 +3,19 @@ const oauthService = require("../service/oauth.service");
 
 
 const userSchema = new Schema({
-    name: { type: String, required: true, default: '' },
-    email: { type: String, required: true, trim: true, lowercase: true, unique: true },
-    password: { type: String },
-    age: { type: Number, default: 18 }
+    name: {type: String, required: true, default: ''},
+    email: {type: String, required: true, trim: true, lowercase: true, unique: true},
+    password: {type: String},
+    age: {type: Number, default: 18}
 }, {
-    timestamps: true
+    timestamps: true,
+    toJSON: {virtuals: true},
+    toObject: {virtuals: true}
 });
+
+userSchema.virtual('fulName').get(function (){
+    return `${this.name} qreal`
+})
 
 userSchema.statics = {     //for schema
     testStatic() {
