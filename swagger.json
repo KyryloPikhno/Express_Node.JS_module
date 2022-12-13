@@ -1,0 +1,51 @@
+{
+"swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Test"
+  },
+  "paths": {
+    "/users/{userID}": {
+      "get": {
+        "description": "Get by id",
+        "tags": ["User"],
+        "operationId": "getUserById",
+        "parameters": [
+          {
+           "name":"userID",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Autorization",
+            "in": "header",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+            "200": {
+              "description": "success response",
+              "schema": {
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "Kirill"
+                    },
+                    "age": {
+                      "type": "integer",
+                      "example": 10
+                    },
+                    "email": {
+                      "type": "string",
+                      "example": "mr.good@i.ua"
+                    }
+                  }
+              }
+            }
+        }
+      }
+    }
+  }
+}
