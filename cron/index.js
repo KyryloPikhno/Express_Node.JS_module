@@ -3,8 +3,8 @@ const removeOldPasswords = require('./removeOldPasswords')
 
 
 const cronRunner = () => {
-    removeOldTokens.start()
-    removeOldPasswords.start()
+    // removeOldTokens.start()
+    // removeOldPasswords.start()
 };
 
 

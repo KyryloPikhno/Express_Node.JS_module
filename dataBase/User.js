@@ -9,4 +9,24 @@ const userSchema = new Schema({
     timestamps: true
 });
 
+userSchema.statics = {     //for schema
+    testStatic() {
+        console.log('static')
+    },
+
+    createUserWithHashPassword(){
+        console.log(this);
+    }
+};
+
+userSchema.methods = {     //for single record
+    testMethod() {
+        console.log('method')
+    },
+
+    comparePasswords(){
+        console.log(this);
+    }
+};
+
 module.exports = model('User', userSchema);

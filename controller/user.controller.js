@@ -1,6 +1,7 @@
 const User = require("../dataBase/User");
 const oauthService = require("../service/oauth.service");
 
+
 module.exports = {
     getAllUsers: async (req, res, next) => {
         try {
@@ -14,6 +15,13 @@ module.exports = {
 
     getUserById: (req, res, next) => {
         try {
+
+            req.user.comparePasswords()
+
+            console.log('____________________-')
+
+            User.createUserWithHashPassword()
+
             res.json(req.user);
         } catch (e) {
             next(e)

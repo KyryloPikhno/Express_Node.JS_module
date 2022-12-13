@@ -10,7 +10,7 @@ router.post('/', mdlwr.isNewUserValid, mdlwr.checkIsEmailUnique, controller.crea
 router.get(
     '/:userId',
     mdlwr.isUserIdValid,
-    authMdlwr.checkAssessToken,
+    // authMdlwr.checkAssessToken,
     mdlwr.getUserDynamically('userId', 'params', '_id'),
     controller.getUserById
 );
