@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added checkOldPasswords">
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added statics and methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/auth.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/auth.controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/user.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/controller/user.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cron/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/cron/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cron/removeOldPasswords.js" beforeDir="false" afterPath="$PROJECT_DIR$/cron/removeOldPasswords.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataBase/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataBase/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/middleware/user.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/middleware/user.middleware.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/user.router.js" beforeDir="false" afterPath="$PROJECT_DIR$/router/user.router.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +77,7 @@
       <workItem from="1670680465355" duration="6461000" />
       <workItem from="1670773115532" duration="47000" />
       <workItem from="1670850501531" duration="10834000" />
-      <workItem from="1670940846390" duration="1825000" />
+      <workItem from="1670940846390" duration="3236000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -390,7 +387,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670940884853</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="added statics and methods">
+      <created>1670942971305</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1670942971305</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,6 +425,7 @@
     <MESSAGE value="added hbs" />
     <MESSAGE value="added cron" />
     <MESSAGE value="added checkOldPasswords" />
-    <option name="LAST_COMMIT_MESSAGE" value="added checkOldPasswords" />
+    <MESSAGE value="added statics and methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="added statics and methods" />
   </component>
 </project>

@@ -16,7 +16,7 @@ module.exports = {
 
             await emailService.sendEmail('mr.good@i.ua', WELCOME, {userName: user.name});
 
-            await oauthService.comparePasswords(user.password, body.password);
+            await user.comparePasswords(body.password)
 
             const tokenPair = oauthService.generateAccessTokenPair({id: user._id});
 
@@ -104,4 +104,5 @@ module.exports = {
         }
     },
 };
+
 
