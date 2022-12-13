@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added statics and methods">
-      <change afterPath="$PROJECT_DIR$/swagger.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added swagger">
+      <change beforePath="$PROJECT_DIR$/swagger.json" beforeDir="false" afterPath="$PROJECT_DIR$/swagger.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +92,7 @@
       <workItem from="1670680465355" duration="6461000" />
       <workItem from="1670773115532" duration="47000" />
       <workItem from="1670850501531" duration="10834000" />
-      <workItem from="1670940846390" duration="7854000" />
+      <workItem from="1670940846390" duration="8203000" />
     </task>
     <task id="LOCAL-00001" summary="add app">
       <created>1668088034646</created>
@@ -433,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670945669586</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="added swagger">
+      <created>1670948953467</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1670948953467</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -465,6 +469,7 @@
     <MESSAGE value="added cron" />
     <MESSAGE value="added checkOldPasswords" />
     <MESSAGE value="added statics and methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="added statics and methods" />
+    <MESSAGE value="added swagger" />
+    <option name="LAST_COMMIT_MESSAGE" value="added swagger" />
   </component>
 </project>

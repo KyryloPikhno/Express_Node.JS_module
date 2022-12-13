@@ -43,6 +43,21 @@
                     }
                   }
               }
+            },
+            "400": {
+              "description": "bad request",
+              "schema": {
+                "properties": {
+                  "statusCode": {
+                    "type": "number",
+                    "example": 4001
+                  },
+                  "message": {
+                    "type": "string",
+                    "example": "bad request"
+                  }
+                }
+              }
             }
         }
       }
