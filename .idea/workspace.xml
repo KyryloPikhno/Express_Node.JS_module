@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added swagger">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="bfb11bbb-748a-4759-84d6-063f5cad57c2" name="Changes" comment="added swagger" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -94,14 +92,7 @@
       <workItem from="1670850501531" duration="10834000" />
       <workItem from="1670940846390" duration="8464000" />
       <workItem from="1671127885763" duration="1175000" />
-      <workItem from="1671201377944" duration="1835000" />
-    </task>
-    <task id="LOCAL-00003" summary="added validator">
-      <created>1669736782978</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1669736782978</updated>
+      <workItem from="1671201377944" duration="1848000" />
     </task>
     <task id="LOCAL-00004" summary="added validator">
       <created>1669737629310</created>
@@ -439,7 +430,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671133125790</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="added swagger">
+      <created>1671206270610</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1671206270612</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
